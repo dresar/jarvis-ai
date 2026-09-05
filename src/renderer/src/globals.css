@@ -1,0 +1,57 @@
+/* ──────────────────────────────────────
+   Jarvis - Global Styles
+   ────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+:root {
+  --color-primary: #00d4ff;
+  --color-primary-glow: rgba(0, 212, 255, 0.35);
+  --color-accent: #7b5ea7;
+  --color-success: #22d3ee;
+  --color-error: #f87171;
+  --color-text: #e2e8f0;
+  --color-text-muted: #94a3b8;
+
+  /* Panel glass effect */
+  --glass-bg: rgba(8, 15, 30, 0.82);
+  --glass-border: rgba(0, 212, 255, 0.18);
+  --glass-blur: blur(14px);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  --font-ui: 'Inter', system-ui, sans-serif;
+  --font-hud: 'Rajdhani', sans-serif;
+
+  --transition-fast: 0.15s ease;
+  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 4px;
+}

@@ -1,0 +1,687 @@
+/* ═══════════════════════════════════════════════════════════
+   DESKTOP APPLICATION WINDOW FRAME & THEME
+═══════════════════════════════════════════════════════════ */
+.desktop-app-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #090d16;
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85), 0 0 1px rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI Variable Display', 'Segoe UI', Roboto, sans-serif;
+  overflow: hidden;
+  z-index: 9999;
+  user-select: none;
+}
+
+/* ── Desktop Titlebar ── */
+.desktop-titlebar {
+  height: 38px;
+  background: #0d1322;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  -webkit-app-region: drag;
+  flex-shrink: 0;
+}
+
+.desktop-title-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.app-brand-mark {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+}
+
+.app-brand-title {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #f1f5f9;
+}
+
+.app-version-badge {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+}
+
+.desktop-title-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  color: #64748b;
+}
+
+.status-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 6px #22c55e;
+}
+
+.status-divider {
+  color: rgba(255, 255, 255, 0.15);
+}
+
+.desktop-title-controls {
+  -webkit-app-region: no-drag;
+}
+
+.win-ctrl-btn {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #f87171;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.win-ctrl-btn:hover {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+/* ── Main Layout Body (Sidebar + Content) ── */
+.desktop-layout-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ── Left Sidebar Navigation ── */
+.desktop-sidebar {
+  width: 220px;
+  background: #0a0f1c;
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.sidebar-section-title {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #475569;
+  padding: 14px 14px 6px 14px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0 8px;
+  flex: 1;
+}
+
+.sidebar-nav-item {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 10px 12px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.12s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebar-nav-item:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.sidebar-nav-item.active {
+  background: #131b2e;
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+.nav-label-main {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #94a3b8;
+}
+
+.sidebar-nav-item.active .nav-label-main {
+  color: #38bdf8;
+}
+
+.nav-label-sub {
+  font-size: 9.5px;
+  color: #475569;
+  font-weight: 500;
+}
+
+.sidebar-footer {
+  padding: 12px 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footer-meta-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9.5px;
+  color: #475569;
+  font-weight: 600;
+}
+
+.footer-val {
+  color: #64748b;
+  font-family: 'Consolas', 'Courier New', monospace;
+}
+
+/* ── Right Content Area ── */
+.desktop-content-area {
+  flex: 1;
+  background: #090d16;
+  overflow-y: auto;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.desktop-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 14px;
+}
+
+.panel-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #f1f5f9;
+  letter-spacing: 0.3px;
+}
+
+.panel-description {
+  margin: 4px 0 0 0;
+  font-size: 11.5px;
+  color: #64748b;
+}
+
+.panel-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* ── Desktop Form Grid ── */
+.desktop-form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.form-field-card {
+  background: #0e1424;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #cbd5e1;
+}
+
+.desktop-input,
+.desktop-select {
+  background: #060911;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  padding: 8px 10px;
+  color: #f8fafc;
+  font-size: 12px;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.15s ease;
+}
+
+.desktop-input:focus,
+.desktop-select:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 1px #38bdf8;
+}
+
+.field-hint {
+  font-size: 10px;
+  color: #475569;
+}
+
+/* ── Desktop Buttons ── */
+.desktop-btn {
+  padding: 7px 14px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  cursor: pointer;
+  transition: all 0.12s ease;
+  border: 1px solid transparent;
+  font-family: inherit;
+}
+
+.desktop-btn.btn-primary {
+  background: #0284c7;
+  border-color: #0369a1;
+  color: #ffffff;
+}
+
+.desktop-btn.btn-primary:hover {
+  background: #0369a1;
+}
+
+.desktop-btn.btn-secondary {
+  background: #131b2e;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+}
+
+.desktop-btn.btn-secondary:hover {
+  background: #1e293b;
+  color: #ffffff;
+}
+
+.desktop-btn.btn-danger {
+  background: rgba(220, 38, 38, 0.12);
+  border-color: rgba(220, 38, 38, 0.35);
+  color: #f87171;
+}
+
+.desktop-btn.btn-danger:hover {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.desktop-btn-xs {
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
+.btn-danger-ghost {
+  background: transparent;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+}
+
+.btn-danger-ghost:hover {
+  background: #ef4444;
+  color: #fff;
+}
+
+/* ── Stats Metric Boxes ── */
+.desktop-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.desktop-stat-box {
+  background: #0e1424;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-num {
+  font-size: 20px;
+  font-weight: 800;
+  font-family: 'Consolas', 'Courier New', monospace;
+  color: #38bdf8;
+}
+
+.stat-title {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.stat-box.stat-active .stat-num { color: #34d399; }
+.stat-box.stat-cooldown .stat-num { color: #fbbf24; }
+.stat-box.stat-disabled .stat-num { color: #f87171; }
+
+/* ── Toolbar Input Bar ── */
+.desktop-toolbar-bar {
+  display: flex;
+  gap: 8px;
+}
+
+.toolbar-input {
+  flex: 1;
+}
+
+/* ── Desktop Data Grid (Tables) ── */
+.desktop-datagrid-container {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 6px;
+  background: #090d16;
+  overflow: auto;
+  max-height: 300px;
+}
+
+.desktop-datagrid {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  text-align: left;
+}
+
+.desktop-datagrid th {
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 8px 10px;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.desktop-datagrid td {
+  padding: 7px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.desktop-datagrid tbody tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.code-tag {
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 10.5px;
+  color: #cbd5e1;
+}
+
+.mono-key {
+  color: #38bdf8;
+}
+
+.grid-status-badge {
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.badge-active { background: rgba(34, 197, 94, 0.12); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3); }
+.badge-cooldown { background: rgba(234, 179, 8, 0.12); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.3); }
+.badge-disabled { background: rgba(239, 68, 68, 0.12); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+.badge-success { background: rgba(34, 197, 94, 0.12); color: #4ade80; }
+
+/* ── Segmented Control ── */
+.segmented-control {
+  display: flex;
+  background: #090d16;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 2px;
+  gap: 2px;
+}
+
+.segment-btn {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
+.segment-btn.active {
+  background: #0284c7;
+  color: #ffffff;
+}
+
+/* ── Alerts & Ribbons ── */
+.desktop-alert-banner {
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #4ade80;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.desktop-alert-banner.danger-banner {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #f87171;
+}
+
+.skills-stat-ribbon,
+.db-chips-ribbon {
+  background: #0e1424;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 10.5px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ribbon-divider {
+  color: rgba(255, 255, 255, 0.15);
+}
+
+.db-table-chip {
+  background: #060911;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+}
+
+.skills-desktop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.skill-desktop-card {
+  background: #0e1424;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skill-card-name {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #38bdf8;
+  font-family: 'Consolas', monospace;
+}
+
+.skill-card-ver {
+  font-size: 9px;
+  color: #64748b;
+}
+
+.skill-card-desc {
+  font-size: 10.5px;
+  color: #94a3b8;
+  margin: 6px 0;
+  flex: 1;
+}
+
+.skill-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding-top: 6px;
+}
+
+.skill-success-rate {
+  font-size: 9.5px;
+  color: #64748b;
+}
+
+.section-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin: 12px 0;
+}
+
+.sub-panel-title {
+  margin: 0 0 6px 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.semantic-results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.semantic-result-item {
+  background: #0e1424;
+  border-left: 3px solid #0284c7;
+  padding: 8px 10px;
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  gap: 8px;
+  font-size: 11px;
+}
+
+.semantic-tag {
+  color: #38bdf8;
+  font-weight: 700;
+  font-size: 9.5px;
+}
+
+.semantic-text {
+  color: #cbd5e1;
+}
+
+.desktop-sql-textarea {
+  width: 100%;
+  background: #060911;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  padding: 10px;
+  color: #38bdf8;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 11.5px;
+  outline: none;
+}
+
+.desktop-sql-textarea:focus {
+  border-color: #38bdf8;
+}
+
+.sql-meta-header {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: #34d399;
+  margin-bottom: 6px;
+}
+
+.panel-footer-actions {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ── Desktop Bottom Status Bar ── */
+.desktop-statusbar {
+  height: 24px;
+  background: #060911;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: #475569;
+  flex-shrink: 0;
+}
+
+.statusbar-left,
+.statusbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.statusbar-divider {
+  color: rgba(255, 255, 255, 0.15);
+}

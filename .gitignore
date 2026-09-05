@@ -1,0 +1,33 @@
+node_modules
+dist
+out
+.DS_Store
+.eslintcache
+*.log*
+
+# Database files (berisi API keys yang sudah tersimpan)
+jarvis-data/
+*.db
+*.db-shm
+*.db-wal
+
+# TTS cache
+tts-cache/
+
+# Environment secrets
+.env
+.env.local
+.env.*.local
+
+# Build artifacts
+*.blockmap
+release/
+
+# IDE
+.vscode/
+.idea/
+
+# Temp
+.temp/
+tmp/
+scripts/test_audio_ai.js
